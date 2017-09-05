@@ -1,16 +1,34 @@
 #![feature(unboxed_closures)]
+#![crate_name = "sknife"]
 
-// Map a vector/list based on a mapping function
-// @param map_fn: Mapping function
-// @param vect: The vector to map
-// @returns: A mapped vector
+/// Maps a vector/list based on a mapping function
+///
+/// # Arguments
+///
+/// * `map_fn` - A mapping function to apply to the list
+/// * `vect` - A vector to apply the map to
+///
+/// # Example
+///
+/// ```
+/// use sknife::map;
+/// let list = vec![1, 2, 3];
+/// let plus_one = |x| x + 1;
+/// map(plus_one, list);
+/// 
+/// ```
+/// 
+/// # Result
+/// ```
+/// vec![2, 3, 4];
+/// ```
 pub fn map<F, A, B> (mut map_fn: F, vect: Vec<A>) -> Vec<B> 
     where F: FnMut(A) -> B,
     A: Clone {
     let mut list = vec![];
 
     for v in vect {
-        let mut value = map_fn(v.clone());
+        let value = map_fn(v.clone());
         list.push(value);
     }
 

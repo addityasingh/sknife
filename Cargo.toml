@@ -1,0 +1,6 @@
+[package]
+name = "sknife"
+version = "0.1.0"
+authors = ["Aditya Pratap Singh <adisinghrajput@gmail.com>"]
+
+[dependencies]

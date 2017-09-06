@@ -10,7 +10,7 @@
 /// # Example
 ///
 /// ```
-/// use sknife::any::any;
+/// use sknife::collection::any;
 /// let list = vec![1, 2, 3, 4];
 /// let greater_than_one = |x: i32| x > 1;
 /// any(greater_than_one, list);

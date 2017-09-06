@@ -10,7 +10,7 @@
 /// # Example
 ///
 /// ```
-/// use sknife::map::map;
+/// use sknife::collection::map;
 /// let list = vec![1, 2, 3];
 /// let plus_one = |x| x + 1;
 /// map(plus_one, list);

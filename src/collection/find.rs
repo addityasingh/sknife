@@ -10,7 +10,7 @@
 /// # Example
 ///
 /// ```
-/// use sknife::find::find;
+/// use sknife::collection::find;
 /// let list = vec![1, 2, 3, 4];
 /// let greater_than_one = |x: i32| x > 1;
 /// find(greater_than_one, list);

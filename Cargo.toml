@@ -2,5 +2,9 @@
 name = "sknife"
 version = "0.1.0"
 authors = ["Aditya Pratap Singh <adisinghrajput@gmail.com>"]
+license = "MIT"
+description = "Swiss knife for common rust functional utilities"
+readme = "README.md"
+homepage = "https://github.com/addityasingh/sknife"
 
 [dependencies]

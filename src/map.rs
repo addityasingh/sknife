@@ -1,4 +1,3 @@
-#![feature(unboxed_closures)]
 #![crate_name = "sknife"]
 
 /// Maps a vector/list based on a mapping function

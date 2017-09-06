@@ -1,4 +1,3 @@
-#![feature(unboxed_closures)]
 #![crate_name = "sknife"]
 use std::collections::HashMap;
 
@@ -42,6 +41,7 @@ pub fn find_keys<V, F> (mut predicate: F, obj: HashMap<String, V>) -> Vec<String
 
 mod tests {
     use super::*;
+    use std::collections::HashMap;
 
     #[test]
     fn find_keys_hash() {

@@ -53,8 +53,8 @@ mod tests {
         assert_eq!(
             find_keys(greater_than_one, obj), 
             vec![
-                String::from("Four"),
-                String::from("Three")
+                String::from("Three"),
+                String::from("Four")
             ]
         );
     }

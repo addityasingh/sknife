@@ -26,12 +26,9 @@ pub fn any<T, F> (mut predicate: F, list: Vec<T>) -> bool
     T: Clone {
         let mut result: bool = false;
         for v in list.iter() {
-            match predicate(v.clone()) {
-                true => {
-                    result = true;
-                    break;
-                },
-                false => continue
+            if predicate(v.clone()) {
+                result = true;
+                break;
             }
         }
         result

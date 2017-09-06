@@ -26,12 +26,9 @@ pub fn find<T, F> (mut predicate: F, list: Vec<T>) -> Option<T>
     T: Clone {
         let mut result: Option<T> = None;
         for v in list.iter() {
-            match predicate(v.clone()) {
-                true => {
-                    result = Some(v.clone());
-                    break;
-                },
-                false => continue
+            if predicate(v.clone()) {
+                result = Some(v.clone());
+                break;
             }
         }
         result

@@ -23,20 +23,20 @@ use std::collections::HashMap;
 /// ```
 /// vec![String::from("Three"), String::from("Four")];
 /// ```
-pub fn find_keys<V, F> (mut predicate: F, obj: HashMap<String, V>) -> Vec<String>
+pub fn find_keys<V, F> (mut predicate: F, obj: HashMap<String, V>) -> Option<String>
     where F: FnMut(V) -> bool,
     V: Clone {
-        let mut list: Vec<String> = vec![];
+        let mut result: Option<String> = None;
         for (k, v) in obj {
             match predicate(v.clone()) {
                 true => {
-                    list.push(k);
+                    result = Some(k)
                 },
                 false => continue
             }
         }
 
-        list
+        result
 }
 
 mod tests {
@@ -52,10 +52,7 @@ mod tests {
         let greater_than_one = |x: i32| x > 1;
         assert_eq!(
             find_keys(greater_than_one, obj), 
-            vec![
-                String::from("Three"),
-                String::from("Four")
-            ]
+            Some(String::from("Three"))
         );
     }
 
@@ -63,7 +60,7 @@ mod tests {
     fn find_keys_empty_hash() {
         let mut obj = HashMap::new();
         let greater_than_one = |x: i32| x > 1;
-        let expected_result: Vec<String> = vec![];
+        let expected_result: Option<String> = None;
         assert_eq!(
             find_keys(greater_than_one, obj), 
             expected_result

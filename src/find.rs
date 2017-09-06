@@ -1,6 +1,6 @@
 #![crate_name = "sknife"]
 
-/// Find if any element of list satisfies the predicate
+/// Find first element of list that satisfies a predicate
 ///
 /// # Arguments
 ///
@@ -10,25 +10,25 @@
 /// # Example
 ///
 /// ```
-/// use sknife::any::any;
+/// use sknife::find::find;
 /// let list = vec![1, 2, 3, 4];
 /// let greater_than_one = |x: i32| x > 1;
-/// any(greater_than_one, list);
+/// find(greater_than_one, list);
 /// 
 /// ```
 /// 
 /// # Result
 /// ```
-/// true;
+/// 2;
 /// ```
-pub fn any<T, F> (mut predicate: F, list: Vec<T>) -> bool
+pub fn find<T, F> (mut predicate: F, list: Vec<T>) -> Option<T>
     where F: FnMut(T) -> bool,
     T: Clone {
-        let mut result: bool = false;
+        let mut result: Option<T> = None;
         for v in list.iter() {
             match predicate(v.clone()) {
                 true => {
-                    result = true;
+                    result = Some(v.clone());
                     break;
                 },
                 false => continue
@@ -41,22 +41,22 @@ mod tests {
     use super::*;
 
     #[test]
-    fn any_empty_list() {
+    fn find_empty_list() {
         let mut list = vec![];
         let greater_than_one = |x: i32| x > 1;
         assert_eq!(
-            any(greater_than_one, list), 
-            false
+            find(greater_than_one, list), 
+            None
         );
     }
 
     #[test]
-    fn any_list() {
+    fn find_in_list() {
         let mut list = vec![1, 2, 3, 4];
         let greater_than_one = |x: i32| x > 1;
         assert_eq!(
-            any(greater_than_one, list), 
-            true
+            find(greater_than_one, list), 
+            Some(2)
         );
     }
 }

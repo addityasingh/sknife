@@ -16,4 +16,3 @@ cargo run
 
 # Contribution
 Add utility function if you think might be a useful as a more function-based ** not functional ;) ** approach
-//TODO

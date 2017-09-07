@@ -1,0 +1,40 @@
+#![crate_name = "sknife"]
+
+/// Get the count of elements in the list
+///
+/// # Arguments
+///
+/// * `list` - A list of elements to find in
+///
+/// # Example
+///
+/// ```
+/// use sknife::collection::count;
+/// let list = vec![1, 2, 3, 4];
+/// count(list);
+/// 
+/// ```
+/// 
+/// # Result
+/// ```
+/// 4;
+/// ```
+pub fn count<T> (list: Vec<T>) -> usize {
+        list.iter().count()
+}
+
+mod tests {
+    use super::*;
+
+    #[test]
+    fn count_empty_list() {
+        let mut list: Vec<i32> = vec![];
+        assert_eq!(count(list), 0);
+    }
+
+    #[test]
+    fn count_of_list() {
+        let mut list = vec![1, 2, 3, 4];
+        assert_eq!(count(list), 4);
+    }
+}

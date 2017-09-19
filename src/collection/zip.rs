@@ -1,6 +1,6 @@
 #![crate_name = "sknife"]
 
-type ListOptions<T> = Vec<(T, T)>;
+type ListTuples<T> = Vec<(T, T)>;
 
 use std;
 /// Zips 2 list into a list of tuples
@@ -26,13 +26,13 @@ use std;
 /// ```
 pub fn zip<T> (
     first_list: Vec<T>, 
-    second_list: Vec<T>) -> ListOptions<T> {
+    second_list: Vec<T>) -> ListTuples<T> {
     // If any in the list is None, ignore it
     // Create iterator from both the lists
     // loop into first iter and combine corresponding elements
     let mut iter_first = first_list.into_iter();
     let mut iter_second = second_list.into_iter();
-    let mut result: ListOptions<T> = vec![];
+    let mut result: ListTuples<T> = vec![];
 
     loop {
         match iter_first.next() {
@@ -55,9 +55,9 @@ mod tests {
 
     #[test]
     fn zip_simple_lists() {
-        let first_list = vec![Some(1), Some(2), Some(3)];
-        let second_list = vec![Some(1), Some(4), Some(9)];
-        let expected_list = vec![(Some(1), Some(1)), (Some(2), Some(4)), (Some(3), Some(9))];
+        let first_list = vec![1, 2, 3];
+        let second_list = vec![1, 4, 9];
+        let expected_list = vec![(1, 1), (2, 4), (3, 9)];
         assert_eq!(
             zip(first_list, second_list), 
             expected_list

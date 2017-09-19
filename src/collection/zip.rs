@@ -1,6 +1,6 @@
 #![crate_name = "sknife"]
 
-type ListOptions<T> = Vec<(Option<T>, Option<T>)>;
+type ListOptions<T> = Vec<(T, T)>;
 
 use std;
 /// Zips 2 list into a list of tuples
@@ -25,8 +25,8 @@ use std;
 /// vec![(Some(1), Some(1)), (Some(2), Some(4)), (Some(3), Some(9))];
 /// ```
 pub fn zip<T> (
-    first_list: Vec<Option<T>>, 
-    second_list: Vec<Option<T>>) -> ListOptions<T> {
+    first_list: Vec<T>, 
+    second_list: Vec<T>) -> ListOptions<T> {
     // If any in the list is None, ignore it
     // Create iterator from both the lists
     // loop into first iter and combine corresponding elements

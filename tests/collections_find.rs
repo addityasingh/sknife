@@ -8,7 +8,7 @@ fn find_greater_than_five () {
     let greater_than_five = |x: i32| x > 5;
 
     assert_eq!(
-        find(greater_than_five, list.to_vec()),
+        find(greater_than_five, list.into_iter()),
         Some(7)
     );
 }

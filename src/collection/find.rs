@@ -13,7 +13,7 @@
 /// use sknife::collection::find;
 /// let list = vec![1, 2, 3, 4];
 /// let greater_than_one = |x: i32| x > 1;
-/// find(greater_than_one, list);
+/// find(greater_than_one, list.into_iter());
 /// 
 /// ```
 /// 
@@ -21,11 +21,12 @@
 /// ```
 /// 2;
 /// ```
-pub fn find<T, F> (mut predicate: F, list: Vec<T>) -> Option<T>
+pub fn find<T, F, I> (mut predicate: F, list: I) -> Option<T>
     where F: FnMut(T) -> bool,
+    I: Iterator<Item=T>,
     T: Clone {
         let mut result: Option<T> = None;
-        for v in list.iter() {
+        for v in list {
             if predicate(v.clone()) {
                 result = Some(v.clone());
                 break;
@@ -42,7 +43,7 @@ mod tests {
         let mut list = vec![];
         let greater_than_one = |x: i32| x > 1;
         assert_eq!(
-            find(greater_than_one, list), 
+            find(greater_than_one, list.into_iter()), 
             None
         );
     }
@@ -52,7 +53,7 @@ mod tests {
         let mut list = vec![1, 2, 3, 4];
         let greater_than_one = |x: i32| x > 1;
         assert_eq!(
-            find(greater_than_one, list), 
+            find(greater_than_one, list.into_iter()), 
             Some(2)
         );
     }

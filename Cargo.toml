@@ -1,6 +1,6 @@
 [package]
 name = "sknife"
-version = "0.2.0"
+version = "0.2.1"
 authors = ["Aditya Pratap Singh <adisinghrajput@gmail.com>"]
 license = "MIT"
 description = "Swiss knife for common rust functional utilities"

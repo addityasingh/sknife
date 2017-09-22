@@ -21,7 +21,7 @@ In order to compare the relative performance of the functions against there corr
 cargo bench
 ```
 
-Some results of the tests are already present here
+Some results of the tests are already present [here](https://github.com/addityasingh/sknife/blob/master/benches/RESULT.md)
 
 # Contribution
 Add utility function if you think might be a useful as a more function-based ** not functional ;) ** approach

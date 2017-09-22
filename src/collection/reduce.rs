@@ -14,9 +14,9 @@
 /// ```
 /// use sknife::collection::reduce;
 /// let initial = 1;
-/// let list = vec![1, 2, 3];
+/// let mut list = vec![1, 2, 3];
 /// let fact = |acc, x| acc * x;
-/// reduce(fact, list, initial);
+/// reduce(fact, list.as_mut_slice(), initial);
 /// 
 /// ```
 /// 

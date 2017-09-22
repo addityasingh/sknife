@@ -24,7 +24,7 @@
 /// ```
 /// 6;
 /// ```
-pub fn reduce<F, A> (mut reduce_fn: F, vect: Vec<A>, initial: A) -> A 
+pub fn reduce<F, A> (mut reduce_fn: F, vect: &mut [A], initial: A) -> A 
     where F: FnMut(A, A) -> A,
     A: Clone {
     let mut accum: A = initial;
@@ -48,20 +48,20 @@ mod tests {
 
     #[test]
     fn reduce_fact() {
-        let list = vec![1, 2, 3];
+        let mut list = vec![1, 2, 3];
         let fact = |acc: i32, x| acc * x;
         assert_eq!(
-            reduce(fact, list, 1), 
+            reduce(fact, list.as_mut_slice(), 1), 
             6
         );
     }
 
     #[test]
     fn reduce_sum() {
-        let list = vec![1, 2, 3];
+        let mut list = vec![1, 2, 3];
         let sum = |acc, x| acc + x;
         assert_eq!(
-            reduce(sum, list, 0), 
+            reduce(sum, list.as_mut_slice(), 0), 
             6
         );
     }

@@ -14,5 +14,14 @@ cargo install
 cargo run
 ```
 
+# Benchmark test
+In order to compare the relative performance of the functions against there corresponding native `Iteratot` methods, there are some benchmark tests in the `benches` folder. Run the command to see the becnhmark comparison
+
+```rust
+cargo bench
+```
+
+Some results of the tests are already present here
+
 # Contribution
 Add utility function if you think might be a useful as a more function-based ** not functional ;) ** approach

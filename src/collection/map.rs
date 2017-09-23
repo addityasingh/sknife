@@ -21,12 +21,14 @@
 /// ```
 /// vec![2, 3, 4];
 /// ```
-pub fn map<F, A, B> (mut map_fn: F, vect: Vec<A>) -> Vec<B> 
+pub fn map<F, A, B> (
+    mut map_fn: F, 
+    vect: &[A]) -> Vec<B> 
     where F: FnMut(A) -> B,
     A: Clone {
     let mut list = vec![];
 
-    for v in vect {
+    for v in vect.iter() {
         let value = map_fn(v.clone());
         list.push(value);
     }
@@ -40,16 +42,16 @@ mod tests {
 
     #[test]
     fn map_simple_list() {
-        let list = vec![1, 2, 3];
+        let mut list = vec![1, 2, 3];
         let expected_list = vec![2, 3, 4];
-        assert_eq!(map(plus_one, list), expected_list);
+        assert_eq!(map(plus_one, list.as_mut_slice()), expected_list);
     }
 
     #[test]
     fn map_empty_list() {
-        let list = vec![];
+        let mut list = vec![];
         let expected_list = vec![];
-        assert_eq!(map(plus_one, list), expected_list);
+        assert_eq!(map(plus_one, list.as_mut_slice()), expected_list);
     }
 
     fn plus_one(n: i32) -> i32 {

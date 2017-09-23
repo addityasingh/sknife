@@ -24,7 +24,10 @@
 /// ```
 /// 6;
 /// ```
-pub fn reduce<F, A> (mut reduce_fn: F, vect: &mut [A], initial: A) -> A 
+pub fn reduce<F, A> (
+    mut reduce_fn: F, 
+    vect: &mut [A], 
+    initial: A) -> A 
     where F: FnMut(A, A) -> A,
     A: Clone {
     let mut accum: A = initial;

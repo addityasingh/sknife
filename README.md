@@ -25,3 +25,9 @@ Some results of the tests are already present [here](https://github.com/addityas
 
 # Contribution
 Add utility function if you think might be a useful as a more function-based ** not functional ;) ** approach
+
+## API
+Checkout the documentation at [docs.rs](https://docs.rs/sknife/)
+
+## License
+MIT © [addityasingh](http://github.com/addityasingh)

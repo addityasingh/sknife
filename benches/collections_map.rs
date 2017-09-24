@@ -14,7 +14,7 @@ mod tests {
         let mut list = vec![1, 2, 3];
         let mut slice = list.as_mut_slice();
         let mut plus_one = |x: i32| x + 1;
-        b.iter(|| map(&plus_one, &slice));
+        b.iter(|| map(&plus_one, slice));
     }
 
     #[bench]

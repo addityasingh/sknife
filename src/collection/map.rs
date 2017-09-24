@@ -11,9 +11,9 @@
 ///
 /// ```
 /// use sknife::collection::map;
-/// let list = vec![1, 2, 3];
+/// let mut list = vec![1, 2, 3];
 /// let plus_one = |x| x + 1;
-/// map(plus_one, list);
+/// map(plus_one, list.as_mut_slice());
 /// 
 /// ```
 /// 
@@ -23,7 +23,7 @@
 /// ```
 pub fn map<F, A, B> (
     mut map_fn: F, 
-    vect: &[A]) -> Vec<B> 
+    vect: &mut [A]) -> Vec<B> 
     where F: FnMut(A) -> B,
     A: Clone {
     let mut list = vec![];

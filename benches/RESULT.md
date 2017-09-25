@@ -21,3 +21,16 @@ running 2 tests
 test tests::bench_reduce_func   ... bench:          26 ns/iter (+/- 10)
 test tests::bench_reduce_method ... bench:          25 ns/iter (+/- 7)
 ```
+
+## map
+
+```rust
+    b.iter(|| map(&plus_one, slice));
+
+    b.iter(|| list.iter().map(&plus_one));
+```
+```bash
+
+test tests::bench_map_func   ... bench:          32 ns/iter (+/- 10)
+test tests::bench_map_method ... bench:           1 ns/iter (+/- 0)
+```
